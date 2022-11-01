@@ -32,7 +32,7 @@ SECRET_KEY = env.str("SECRET_KEY",
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sites",
     'trip_purpose',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -121,7 +123,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+##
+SITE_ID=1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
@@ -131,3 +134,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# amadues credentials 
+
+AMADEUS_CLIENT_ID=env.str('AMADEUS_CLIENT_ID')
+AMADEUS_CLIENT_SECRET=env.str('AMADEUS_CLIENT_SECRET')
